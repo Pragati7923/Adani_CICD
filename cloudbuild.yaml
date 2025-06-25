@@ -5,7 +5,7 @@ steps:
       [
         'build',
         '-t',
-        "asia-south1-docker.pkg.dev/round-pen-460408-s6/gcr.io/test-app1:$COMMIT_SHA",
+        "us-central1-docker.pkg.dev/round-pen-460408-s6/demo/test-app1:$COMMIT_SHA",
         '.'
       ]
 
@@ -14,7 +14,7 @@ steps:
     args:
       [
         'push',
-        "asia-south1-docker.pkg.dev/round-pen-460408-s6/gcr.io/test-app1:$COMMIT_SHA"
+        "us-central1-docker.pkg.dev/round-pen-460408-s6/demo/test-app1:$COMMIT_SHA"
       ]
 
   # Step 3: Deploy to Cloud Run
@@ -26,7 +26,7 @@ steps:
         'deploy',
         'your-cloud-run-service-name',
         '--image',
-        "asia-south1-docker.pkg.dev/round-pen-460408-s6/gcr.io/test-app1:$COMMIT_SHA",
+        "us-central1-docker.pkg.dev/round-pen-460408-s6/demo/test-app1:$COMMIT_SHA",
         '--region',
         'asia-south1',
         '--platform',
@@ -37,6 +37,6 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  
+
 images:
-  - "asia-south1-docker.pkg.dev/round-pen-460408-s6/gcr.io/test-app1:$COMMIT_SHA"
+  - "us-central1-docker.pkg.dev/round-pen-460408-s6/demo/test-app1:$COMMIT_SHA"
